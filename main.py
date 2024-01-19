@@ -12,7 +12,7 @@ from ema import EMA
 from model import UNet
 from run import run
 from sampling import sampling
-from sde import VPSDE
+from sde import VPSDE, subVPSDE
 from utils import Save
 
 parser = argparse.ArgumentParser()
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     train_dl, eval_dl = Dataset.get_dataloader()
     config['data'] = Dataset.config
 
-    SDE = VPSDE(config)
+    SDE = subVPSDE(config)
     model = UNet(config).to(config['device'])
     model = model.to(dtype=torch.float32)
     model = nn.DataParallel(model)

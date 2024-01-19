@@ -47,7 +47,7 @@ class Save():
         sample = reverse_transform(sample).cpu()
         self.save_tensor(epoch, sample)
         sample = torch.clamp(sample * 255, min=0, max=255).to(dtype=torch.uint8)
-        grid = vutils.make_grid(sample, nrow=5, padding=2)
+        grid = vutils.make_grid(sample, nrow=10, padding=2)
         plt.axis('off')
         plt.imshow(grid.permute(1, 2, 0))
         plt.savefig(file_nm, bbox_inches='tight')

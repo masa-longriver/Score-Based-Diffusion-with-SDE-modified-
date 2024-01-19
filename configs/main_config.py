@@ -47,7 +47,7 @@ config = {
         'decay': 0.9999
     },
     'sampling': {
-        'n_img': 20
+        'n_img': 100
     }
 }
 
